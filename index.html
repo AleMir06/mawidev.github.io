@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- 
-(╯°□°)╯︵ ┻━┻
+(╯°□°)╯
 __        _____ _     _     _  _____  __  __ __  __ _____ _   _      
 \ \      / /_ _| |   | |   | |/ / _ \|  \/  |  \/  | ____| \ | |     
  \ \ /\ / / | || |   | |   | ' / | | | |\/| | |\/| |  _| |  \| |     
@@ -12,260 +12,464 @@ __        _____ _     _     _  _____  __  __ __  __ _____ _   _
 /_/   \_\___/|_|     |_|  |_/_/   \_\_/\_/  |___|____/|_____|  \_/   
 -->
 <html>
-	<head>
+    <head>
+        <title>MawiDev</title>
+        <link rel="icon" href="./pictures/icon.ico"/>
+        <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+        <style>
+            body{
+                background-color: #fefefe;
+                color: black;
+                font-family: "Changa", serif;
+                margin: 0;
+                overflow-x: hidden;
+                margin-top: 80px;
+            }
+            
+            #navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 20px;
+                background-color: #f4f4f4;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                box-sizing: border-box;
+            }
 
-    <meta charset="UTF-8">
-    <meta name="keywords" content="Webseiten, Schnittstellenprogrammierung, Automatisierung">
-    <meta name="author" content="Marcel-Brian Wilkowsky">
+            #navbar-contact {
+                display: flex;
+                justify-content: flex-end;
+                flex-shrink: 0;
+            }
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            #navbar-links {
+                display: flex;
+                gap: 20px;
+                flex-shrink: 1;
+            }
 
-		<!-- MATERIALIZE -->
-		<link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
-		<!-- main.css -->
-		<link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+            #navbar-icon {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+            }
 
-    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+            #navbar-icon img {
+                width: 40px;
+                height: auto;
+            }
 
-		<!-- Tragebare Schnurtelefone müssen ebenfalls beachtet werden -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+            }
 
-    <title>mawidev - Startseite</title>
-    <!-- Alles für die Suchmaschinen :-) -->
-    <meta name="description" content="Ich bin Marcel, ein erfahrener Softwareentwickler aus Paderborn. Webseiten, Schnittstellenprogrammierung und Automatisierung bestehender Prozesse.">
-    <meta name="theme-color" content="#186e67"></meta>
+            a:hover {
+                color: #007bff; 
+            }
+
+            #hero-section {
+                display: flex;
+                height: calc(100vh - 60px);
+                background-color: #fdecd8;
+            }
+
+            #hero-text {
+                flex: 0 0 65%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            #hero-heading {
+                font-size: 3rem;
+                text-align: center;
+                font-weight: bold;
+                margin-bottom: 20px;
+                line-height: 1.2;
+                color: #333; 
+            }
+
+            #hero-subheading {
+                font-size: 1.2rem; 
+                text-align: center;
+                color: #555; 
+                margin: 0 auto; 
+                margin-bottom: 30px; 
+                line-height: 1.5; 
+                max-width: 600px;
+                padding: 0 20px; 
+            }
+
+            #hero-get-started {
+                text-decoration: none;
+                font-size: 1rem;
+                color: white;
+                background-color: #007bff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            #hero-get-started:hover {
+                background-color: #0056b3;
+            }
+
+            #hero-image {
+                flex: 0 0 35%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden; 
+            }
+
+            #hero-image img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            #service-1 {
+                background-color: #e0ece8;
+            }
+
+            #service-2 {
+                background-color: #feedd9;
+            }
+
+            #service-3 {
+                background-color: #c1e3f8;
+            }
+
+            #services {
+                padding: 60px 20px;
+                background-color: #ffffff;
+            }
+
+            #services-header {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            #services-heading {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #333;
+            }
+
+            #services-content {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                flex-wrap: wrap;
+                padding: 0 15px;
+            }
+
+            #service-1 {
+                background-color: #e0ece8;
+            }
+
+            #service-2 {
+                background-color: #feedd9;
+            }
+
+            #service-3 {
+                background-color: #c1e3f8;
+            }
+
+            .services-content {
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                flex: 1;
+                max-width: 30%;
+                display: flex;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .services-content img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+            }
+
+            .service-text {
+                text-align: left;
+            }
+
+            .content-heading {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .content-text {
+                font-size: 1rem; 
+                color: #555; 
+                line-height: 1.5; 
+            }
+
+            @media (max-width: 768px) {
+                #services-content {
+                    flex-direction: column; 
+                    gap: 30px;
+                }
+
+                .services-content {
+                    max-width: 100%;
+                }
+            }
+
+            #about-me {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 60px 30px;
+                gap: 20px; 
+                border-radius: 10px; 
+                background-color: #c1e3f8;
+                box-sizing: border-box; 
+                margin: 0 30px; 
+            }
+
+            #about-me-text {
+                flex: 2; 
+            }
+
+            #about-me-heading {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #333; 
+            }
+
+            #about-me-description {
+                font-size: 1.2rem; 
+                line-height: 1.6;
+                color: #555; 
+                max-width: 600px; 
+            }
+
+            #about-me-image {
+                flex: 1; 
+                text-align: right;
+            }
+
+            #about-me-image img {
+                max-width: 100%; 
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            #contact {
+                padding: 60px 30px;
+                background-color: #e0ece8;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                margin: 40px 30px;
+                text-align: center;
+            }
+
+            #contact-heading {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            #contact-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-bottom: 40px;
+            }
+
+            .contact-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 20px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                text-decoration: none;
+                font-size: 1rem;
+                color: #333;
+                transition: all 0.3s ease;
+                background-color: #fff;
+            }
+
+            .contact-button:hover {
+                background-color: #f0f0f0;
+                border-color: #bbb;
+            }
+
+            .contact-image {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            #contact-form {
+                text-align: left;
+                margin-top: 20px;
+            }
+
+            #contact-form form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            #form-email, #form-number, #form-message {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-size: 1rem;
+            }
+
+            #form-message {
+                height: 120px;
+                resize: vertical;
+            }
+
+            #submit-button {
+                padding: 12px 20px;
+                font-size: 1rem;
+                font-weight: bold;
+                color: #fff;
+                background-color: #007BFF;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #submit-button img {
+                width: 20px;
+                height: 20px;
+                margin-left: 8px;
+            }
+
+            #submit-button:hover {
+                background-color: #0056b3;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="navbar">
+            <div id="navbar-icon">
+                <img src="./pictures/icon.ico"/>
+                <p>MAWIDEV</p>
+            </div>
+            <div id="navbar-links">
+                <a href="#services">Dienstleistungen</a>
+                <a href="#about-me">Wer bin ich?</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div id="navbar-contact">
+                <a href="#contact-form">Start </a>
+            </div>
+        </div>
+
+        <div id="hero-section">
+            <div id="hero-text">
+                <p id="hero-heading">Einfach.<br/>Individuell.<br/>Effizient.</p>
+                <p id="hero-subheading">
+                    Ich bin Marcel, Softwareentwickler aus Paderborn. Ich erschaffe maßgeschneiderte Lösungen – von <b>professionellen Webseiten</b> bis hin zur <b>Prozessautomatisierung</b>.
+                </p>
+                <a id="hero-get-started" href="#contact-form">Kostenlose Beratung sichern</a>
+            </div>
+            <div id="hero-image">
+                <img src="./pictures/pexels-cottonbro-3584923.jpg" alt="Hero Image" />
+            </div>
+        </div>
+
+        <div id="services">
+            <div id="services-header">
+                <p id="services-heading">Dienstleistungen</p>
+            </div>
+            <div id="services-content">
+                <div class="services-content" id="service-1">
+                    <img src="./pictures/icon1.png" alt="Service 1 Icon" />
+                    <div class="service-text">
+                        <p class="content-heading">Außendarstellung</p>
+                        <p class="content-text">Professionelle Webseite für dein Unternehmen. Logodesign, Blogs, Shops, SEO und mehr.</p>
+                    </div>
+                </div>
+                <div class="services-content" id="service-2">
+                    <img src="./pictures/icon2.png" alt="Service 2 Icon" />
+                    <div class="service-text">
+                        <p class="content-heading">Individuelle Software</p>
+                        <p class="content-text">Maßgeschneiderte Anwendungen – von Schnittstellen bis zu Self-Service-Portalen. Genau das, was du brauchst.</p>
+                    </div>
+                </div>
+                <div class="services-content" id="service-3">
+                    <img src="./pictures/icon3.png" alt="Service 3 Icon" />
+                    <div class="service-text">
+                        <p class="content-heading">Automatisierung</p>
+                        <p class="content-text">Automatisierung von Prozessen. Geschäftsprozesse, Software und weiteres.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-me">
+            <div id="about-me-text">
+                <p id="about-me-heading">Softwareentwicklung mit Leidenschaft.</p>
+                <p id="about-me-description">
+                    Mit über 7 Jahren Erfahrung entwickle ich Lösungen, die funktionieren <br/>– <i>zuverlässig, flexibel und auf deine Ziele abgestimmt</i>.
+                </p>
+            </div>
+            <div id="about-me-image">
+                <img src="pictures/21292994.png" alt="Über mich" />
+            </div>
+        </div>
+
+        <div id="contact">
+            <p id="contact-heading">Kontakt</p>
+            <div id="contact-buttons">
+                <a class="contact-button" href="tel:+4915560308463">
+                    <img class="contact-image" src="pictures/phone-icon.png" alt="Telefon"> 0155 60308463
+                </a>
+                <a class="contact-button" href="https://wa.me/message/ENG3ONGOWCWTD1" target="_blank">
+                    <img class="contact-image" src="pictures/whatsapp-icon.png" alt="WhatsApp"> WhatsApp
+                </a>
+                <a class="contact-button" href="mailto:marcel@mawidev.de" target="_blank">
+                    <img class="contact-image" src="pictures/email-icon.png" alt="E-Mail"> marcel@mawidev.de
+                </a>
+                <a class="contact-button" href="https://www.instagram.com/mawidev/" target="_blank">
+                    <img class="contact-image" src="pictures/instagram-icon.png" alt="Instagram"> Instagram
+                </a>
+            </div>
         
-	</head>
-
-	<body>
-		<!-- MATERIALIZE -->
-		<script type="text/javascript" src="static/js/materialize.min.js"></script>
-		<!-- main.js -->
-		<script type="text/javascript" src="static/js/main.js"></script>
-
-        <nav> 
-            <div class="nav-wrapper"> 
-                <a href="/" class="brand-logo center">
-                    mawidev
-                </a> 
-                
-                <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
-                
-                <ul id="nav-mobile" class="left">
-                <li><a class="dark-toggle" name="dark_toggle" onclick="toggle_darkmode(this)" title="Hell/Dunkel"><i class="material-icons" name="dark_toggle_icon" id="page_theme_icon">light_mode</i></a></li>
-                </ul>
-
-
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#dienstleistungen"><i class="material-icons left">construction</i> Dienstleistungen</a></li> 
-                    <!-- <li><a href="#referenzen"><i class="material-icons left">shortcut</i> Referenzen</a></li> -->
-                    <li><a class="waves-effect btn" href="#kontakt">Kontakt</a></li> 
-                </ul> 
-            </div> 
-        </nav>
-
-        <ul id="slide-out" class="sidenav">
-            <li><a class="subheader">mawidev</a></li>
-            
-            <li><a href="#kontakt"><i class="material-icons">call</i> Kontakt</a></li>
-            <li><a href="#dienstleistungen"><i class="material-icons">construction</i> Dienstleistungen</a></li>
-            <!-- <li><a href="#referenzen"><i class="material-icons">shortcut</i> Referenzen</a></li> -->
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Soziale Netzwerke</a></li>
-            <li><a class="waves-effect" target="_blank" href="https://wa.me/message/ENG3ONGOWCWTD1">WhatsApp</a></li>
-            <li><a class="waves-effect" target="_blank" href="https://github.com/mawigh">GitHub</a></li>
-            <li><a class="waves-effect" target="_blank" href="https://www.instagram.com/mawidev/">Instagram</a></li>
-          </ul>
-
-
-      <div class="white section scrollspy" id="dienstleistungen">
-        <div class="row container center">
-            
-            <h2 class="header">Willkommen bei <span class="mawidev">mawidev</span></h2>
-            <img class="profile_image" src="static/images/me.png" draggable="false"></img>
-            <!-- <p class="grey-text text-darken-3 lighten-3"> -->
-            <p class="flow-text">
-              Ich bin Marcel, ein erfahrener Softwareentwickler aus Paderborn.
-              Ich baue Webseiten, für dich angepasste Schnittstellen, optimiere Prozesse durch den Einsatz selbstgebauter Software oder integriere neue Software in bestehende Infrastruktur. 
-            </p>
-         
+            <p id="contact-heading">Kontaktformular</p>
+            <div id="contact-form">
+                <form method="POST" action="https://formspree.io/f/mgveabkq">
+                    <input id="form-email" name="email" type="email" placeholder="Deine E-Mail-Adresse" required>
+                    <input id="form-number" name="number" type="tel" placeholder="Deine Telefonnummer (optional)">
+                    <textarea id="form-message" name="message" placeholder="Deine Nachricht" required></textarea>
+                    <button id="submit-button" type="submit">Abschicken <img src="pictures/send.png" alt="Senden"></button>
+                </form>
+            </div>
         </div>
-      </div>
-
-    <div class="parallax-container">
-        <div class="parallax"><img class="parallax_image" draggable="false" src="static/images/pb_dom.jpg"></div>
-      </div>
-
-      <!-- KONTAKT -->
-      <div class="section white scrollspy" id="kontakt">
-        <div class="row container center">
-          <h2 class="header">Kontakt</h2>
-            <!-- <img class="profile_image" src="static/images/me.png" draggable="false"></img> -->
-
-            <div class="row" style="padding-top: 2%;">
-                <a class="waves-effect waves-light btn-small" style="width: 280px;" href="tel:+4915560308463"><i class="material-icons left">call</i> 0155 60308463</a>
-            </div>
-            <div class="row">
-                <a class="waves-effect waves-light btn-small" style="width: 280px;" target="_blank" href="https://wa.me/message/ENG3ONGOWCWTD1"><i class="material-icons left">share</i> WhatsApp</a>
-            </div>
-            <div class="row">
-                <a class="waves-effect waves-light btn-small" style="width: 280px;" target="_blank" href="mailto:marcel@mawidev.de"><i class="material-icons left">mail</i> marcel@mawidev.de</a>
-            </div>
-            <div class="row" style="padding-bottom: 2%">
-                <a class="waves-effect waves-light btn-small" style="width: 280px;" target="_blank" href="https://www.instagram.com/mawidev/"><i class="material-icons left">public</i> Instagram</a>
-            </div>
-
-            <hr style="width: 50%"></hr>
-
-          <h3 class="header">Kontaktformular</h3>
-        <div class="row">
-            <form class="col s12" method="POST" action="https://formspree.io/f/mgveabkq">
-            <div class="row">
-                <div class="input-field col s12">
-                <input id="email" name="email" type="text" class="validate" required="required">
-                <label for="email">Deine E-Mail *</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                <input id="number" name="number" type="tel" class="validate">
-                <label for="number">Telefonnummer</label>
-                </div>
-            </div>
-
-
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                <textarea id="message" name="message" class="materialize-textarea" required="required"></textarea>
-                <label for="message">Deine Nachricht *</label>
-                </div>
-            </div>
-            <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Abschicken
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-            </form>
-        </div> 
-        </div>
-      </div>
-
-      <div class="parallax-container">
-        <div class="parallax"><img class="parallax_image" draggable="false" src="static/images/pb_schloss.jpg"></div>
-      </div>
-
-      <!-- DIENSTLEISTUNGEN -->
-
-      <div class="section white scrollspy" id="dienstleistungen">
-
-        <div class="row container center">
-            <h2 class="header">Dienstleistungen</h2>
-
-            <div class="row mba">
-              <div class="col s12 m6 l6">
-                <div class="card">
-                  <div class="card-content">
-                    <span class="card-title"><i class="material-icons">imagesearch_roller</i> Außendarstellung</span>
-                    <p>Professionelle Webseite für dein Unternehmen.</br>Logodesign, Blogs, Shops, SEO und mehr</p>
-                  </div>
-                  <!-- <div class="card-action">
-                    <a class="service-btn" href="/dienstleistungen.html">Mehr hier</a>
-                  </div> -->
-                </div>
-              </div>
-
-              <div class="col s12 m6 l6">
-                <div class="card">
-                  <div class="card-content">
-                    <span class="card-title"><i class="material-icons">wysiwyg</i> Software</span>
-                    <p>Individuelle Software.</br>Von Schnitstellen bis Self-Service Portale</p>
-                  </div>
-                  <!-- <div class="card-action">
-                    <a class="service-btn" href="/dienstleistungen.html">Mehr hier</a>
-                  </div> -->
-                </div>
-              </div>
-
-
-            </div>
-
-            <div class="row">
-              <!-- <div class="col s12 m6 l6">
-                <div class="card">
-                  <div class="card-content">
-                    
-                    <span class="card-title"><i class="material-icons">account_tree</i> Prozesse</span>
-                    <p>I am a very simple card small bits of information.</br>hehe</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="service-btn" href="/dienstleistungen.html">Mehr hier</a>
-                  </div>
-                </div>
-              </div> -->
-
-              <div class="col s12 m12 l12">
-                <div class="card">
-                  <div class="card-content">
-                    <span class="card-title"><i class="material-icons">manage_history</i> Automatisierung</span>
-                    <p>Automatisierung von Prozessen.</br>Geschäftsprozesse, Software und weiteres<p>
-                  </div>
-                  <!-- <div class="card-action">
-                    <a class="service-btn" href="/dienstleistungen.html">Mehr hier</a>
-                  </div> -->
-                </div>
-              </div>
-
-
-            </div>
-
-            <div class="row" style="padding-top: 2%">
-                <a class="waves-effect waves-light btn-small" style="width: 280px;" href="#kontakt"><i class="material-icons left">perm_contact_calendar</i> Jetzt Kontakt aufnehmen</a>
-            </div>
-
-        </div>
-      </div>
-
-      <div class="parallax-container">
-        <div class="parallax"><img class="parallax_image" draggable="false" src="static/images/pb_pader.jpg"></div>
-      </div>
-
-
-      <!-- <div class="section white">
-
-       REFERENZEN 
-        <div class="row container scrollspy" id="referenzen">
-          <h2 class="header">Referenzen</h2>
-          <h3 class="subheader">Projekte</h2>
-        </div>
-      </div> -->
-
     </body>
-
-    <footer class="page-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">MAWIDEV</h5>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
-              <ul>
-
-                <li><a class="grey-text text-lighten-3" target="_blank" href="https://wa.me/message/ENG3ONGOWCWTD1">WhatsApp</a></li>
-                <li><a class="grey-text text-lighten-3" target="_blank" href="https://github.com/mawigh">GitHub</a></li>
-                <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.instagram.com/mawidev/">Instagram</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          <div class="container">
-            © 2024 mawidev - Marcel-Brian Wilkowsky
-          <a class="grey-text text-lighten-4 right" href="impressum.html">Impressum</a>
-          </div>
-        </div>
-      </footer>
-          
 </html>
